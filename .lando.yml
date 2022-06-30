@@ -1,0 +1,16 @@
+name: meal-app
+recipe: lamp
+config:
+  webroot: public
+
+services:
+  node:
+    type: node
+    build:
+      - npm install
+
+tooling:
+  npm:
+    service: node
+  node:
+    service: node
