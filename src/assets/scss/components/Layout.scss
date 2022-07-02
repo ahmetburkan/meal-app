@@ -1,0 +1,39 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.base-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+
+  &-header {
+    flex-shrink: 0;
+
+    header {
+      background-color: $green;
+    }
+  }
+
+  &-main {
+    flex-grow: 1;
+
+    main {
+      background-color: $white;
+    }
+  }
+
+  &-footer {
+    flex-shrink: 0;
+
+    footer {
+      background-color: $green;
+    }
+  }
+}
