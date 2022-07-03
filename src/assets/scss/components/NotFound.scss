@@ -1,0 +1,41 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.base-layout-error {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  background-color: $green-light;
+
+  &-main {
+    height: 100%;
+
+    .main {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column nowrap;
+
+      h1 {
+        @include title($white, $title-l);
+        display: inline-block;
+      }
+      a {
+        @include text($white, $title-s);
+        border-bottom: 1px solid $white;
+        transition: color 0.3s ease, border-bottom-color 0.3s ease;
+
+        &:hover {
+          opacity: 0.9;
+          color: $green;
+          border-bottom-color: $green;
+        }
+      }
+    }
+  }
+}
