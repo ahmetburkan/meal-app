@@ -4,13 +4,17 @@ import './assets/scss/App.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ThemeContextProvider from './context/ThemeContextProvider';
+import AuthContextProvider from "./context/AuthContextProvider";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
     <React.StrictMode>
-        <ThemeContextProvider>
-            <App />
-        </ThemeContextProvider>
+        <AuthContextProvider>
+            <ThemeContextProvider>
+                <App />
+            </ThemeContextProvider>
+        </AuthContextProvider>
     </React.StrictMode>
 );
 

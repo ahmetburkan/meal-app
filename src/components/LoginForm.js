@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import jwtDecode from "jwt-decode";
+import { AuthContext } from '../context/AuthContextProvider';
 
 const LoginForm = () => {
+    const { login } = useContext(AuthContext);
 
     const [message, setMessage] = useState(null);
 
@@ -25,8 +26,8 @@ const LoginForm = () => {
                 username: data.email,
                 password: data.password,
             });
-            console.log(jwtDecode(result.data.accessToken));
 
+            login(result.data.accessToken);
             setMessage("Login successful.");
         } catch (e) {
             if (e.response.status === 401) {

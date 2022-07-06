@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Welcome from './pages/Welcome';
@@ -9,18 +9,19 @@ import {
     Route,
     Navigate,
 } from 'react-router-dom';
+import { AuthContext } from './context/AuthContextProvider';
 
 function App() {
-    const isAuth = true;
+    const { isAuth } = useContext(AuthContext);
 
     return (
         <Router>
             <Routes>
                 <Route exact path="/" element={
-                    <Login/>
+                    !isAuth ? <Login /> : <Navigate to="/welcome" />
                 }/>
                 <Route exact path="/register" element={
-                    <Register/>
+                    !isAuth ? <Register /> : <Navigate to="/welcome" />
                 }/>
                 <Route exact path="/welcome" element={
                     isAuth ? <Welcome /> : <Navigate to="/" />
