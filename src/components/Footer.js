@@ -12,10 +12,10 @@ const Footer = () => {
                     <div className='footer-inner-block'>
                         <h5>Menu</h5>
                         <ul className="footer-inner-block-list">
-                            <li className="footer-inner-block-list-item"><NavLink activeClassName="active" to="/random"><span className='logo-link'>Random <img src={SurpriseBox} alt='Suprise Box'/></span></NavLink></li>
-                            <li className="footer-inner-block-list-item"><NavLink activeClassName="active" to="/country">Country list</NavLink></li>
-                            <li className="footer-inner-block-list-item"><NavLink activeClassName="active" to="/category">Category list</NavLink></li>
-                            <li className="footer-inner-block-list-item"><NavLink activeClassName="active" to="/my-account">My account</NavLink></li>
+                            <li className="footer-inner-block-list-item"><NavLink to="/random"><span className='logo-link'>Random <img src={SurpriseBox} alt='Suprise Box'/></span></NavLink></li>
+                            <li className="footer-inner-block-list-item"><NavLink to="/country">Country list</NavLink></li>
+                            <li className="footer-inner-block-list-item"><NavLink to="/category">Category list</NavLink></li>
+                            <li className="footer-inner-block-list-item"><NavLink to="/my-account">My account</NavLink></li>
                         </ul>
                     </div>
 

@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import { Link } from 'react-router-dom';
 
 const NotFound = () => {
-    const [overlay, setOverlay] = useState(null);
-
     return (
         <div className='base-layout-error'>
             <div className="base-layout-error-main ">

@@ -1,14 +1,15 @@
-import React, { useState }from 'react';
+import React, { useContext } from 'react';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { ThemeContext } from '../context/ThemeContextProvider';
 
 const Login = () => {
-    const [overlay, setOverlay] = useState(null);
+    const { overlay } = useContext(ThemeContext);
 
     return (
         <div className={'base-layout ' + (overlay ? overlay : '')}>
             <div className='base-layout-header'>
-                <Header overlay={overlay} setOverlay={setOverlay}/>
+                <Header/>
             </div>
 
             <div className="base-layout-main">

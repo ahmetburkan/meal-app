@@ -1,32 +1,37 @@
-.main {
-  height: 100%;
-
-  &-inner {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-flow: row nowrap;
-    align-items: center;
-
-
-    &-left {
-
-    }
-
-    &-right {
-      width: 50%;
-      height: 100%;
-      background-image: url(/assets/images/meal.jpg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-  }
-
-  @media only screen and (min-width: $tablet) {
-  }
-
-  @media only screen and (min-width: $desktop) {
-
-  }
-}
+//.main {
+//  height: 100%;
+//
+//  &-inner {
+//    height: 100%;
+//    display: flex;
+//    justify-content: space-between;
+//    flex-flow: row nowrap;
+//    align-items: center;
+//
+//
+//    &-left {
+//      width: 50%;
+//      height: 100%;
+//      display: flex;
+//      justify-content: center;
+//      align-items: center;
+//      flex-flow: column nowrap;
+//    }
+//
+//    &-right {
+//      width: 50%;
+//      height: 100%;
+//      background-image: url(/assets/images/meal.jpg);
+//      background-size: cover;
+//      background-repeat: no-repeat;
+//      background-position: center;
+//    }
+//  }
+//
+//  @media only screen and (min-width: $tablet) {
+//  }
+//
+//  @media only screen and (min-width: $desktop) {
+//
+//  }
+//}
