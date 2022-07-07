@@ -1,50 +1,49 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContextProvider';
+import { ThemeContext } from "../context/ThemeContextProvider";
 
 const LoginForm = () => {
+    const { setOverlay, setMessage, setLoading } = useContext(ThemeContext);
     const { login } = useContext(AuthContext);
-
-    const [message, setMessage] = useState(null);
 
     const baseUrl = axios.create({
         baseURL: "https://frontend-educational-backend.herokuapp.com/api"
     });
-
-    const [loading, toggleLoading] = useState(false);
 
     const { handleSubmit, formState: { errors }, register } = useForm({
         mode: 'onChange'
     });
 
     async function onFormSubmit(data) {
-        toggleLoading(true);
+        setLoading(true);
 
         try {
             const result = await baseUrl.post('/auth/signin', {
                 username: data.email,
+                email: data.email,
                 password: data.password,
+                role: ["user"],
             });
-
             login(result.data.accessToken);
-            setMessage("Login successful.");
         } catch (e) {
             if (e.response.status === 401) {
                 setMessage("Wrong credentials.");
+                setOverlay('notice');
             } else if (e.request) {
                 setMessage('Bad request. Try again later.');
+                setOverlay('error');
             } else {
                 setMessage('Something went wrong. Try again later.');
+                setOverlay('error');
             }
         }
-        toggleLoading(false);
     }
 
     return (
 
         <form  className='form' onSubmit={handleSubmit(onFormSubmit)}>
-            <p className='message'>{ message }</p>
             <label htmlFor="email">
                 Email: {errors.email && <span>{errors.email.message}</span>}
             </label>
@@ -53,7 +52,6 @@ const LoginForm = () => {
                 type="email"
                 name="email"
                 id="email"
-                disabled={loading}
                 {...register("email", {
                     required: "Required *",
                     maxLength: {
@@ -75,7 +73,6 @@ const LoginForm = () => {
                 type="password"
                 name="password"
                 id="password"
-                disabled={loading}
                 {...register("password", {
                     required: "Required *",
                     minLength: {
@@ -92,7 +89,6 @@ const LoginForm = () => {
             <button
                 className='submit'
                 type="submit"
-                disabled={loading}
             >
                 Login
             </button>

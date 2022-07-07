@@ -1,0 +1,21 @@
+.base-layout {
+  .loading-overlay {
+    background-color: $green-light;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    z-index: -10;
+    transition: z-index 0.3s ease,
+                opacity 0.3s ease;
+    cursor: initial;
+  }
+}
+
+.base-layout {
+  .loading-overlay.active {
+    opacity: 0.5;
+    z-index: 100;
+    cursor: wait;
+  }
+}

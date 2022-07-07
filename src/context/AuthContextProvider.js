@@ -1,9 +1,12 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState, useContext } from 'react';
 import jwt_decode from 'jwt-decode';
+import { ThemeContext } from "./ThemeContextProvider";
 
 export const AuthContext = createContext({});
 
 function AuthContextProvider({ children }) {
+    const { setOverlay, setMessage, setLoading } = useContext(ThemeContext);
+
     const [isAuth, toggleIsAuth] = useState({
         isAuth: false,
         user: null,
@@ -32,6 +35,8 @@ function AuthContextProvider({ children }) {
         const decoded = jwt_decode(JWT);
 
         fetchUserData(decoded.sub, JWT);
+        setOverlay('success');
+        setMessage("Login successful.");
     }
 
     function logout() {
@@ -41,6 +46,8 @@ function AuthContextProvider({ children }) {
             user: null,
             status: 'done',
         });
+        setOverlay('notice');
+        setMessage("Logged out successful.");
     }
 
     async function fetchUserData(email, token) {
@@ -73,7 +80,7 @@ function AuthContextProvider({ children }) {
 
     return (
         <AuthContext.Provider value={contextData}>
-            {isAuth.status === 'done' ? children : <p>Loading...</p>}
+            {isAuth.status === 'done' ? children : ''}
         </AuthContext.Provider>
     );
 }

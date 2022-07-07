@@ -1,0 +1,56 @@
+.base-layout {
+  .pop-up-message {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    top: -50px;
+    z-index: 90;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    transition: top 0.3s ease;
+
+    p {
+      @include text($white, $text-s)
+    }
+  }
+}
+
+.base-layout.notice,
+.base-layout.error,
+.base-layout.success {
+  .pop-up-message {
+    top: 0;
+  }
+}
+.base-layout.success {
+  .pop-up-message {
+    background-color: $green-light;
+
+    p {
+      color: $white;
+    }
+  }
+}
+
+.base-layout.error {
+  .pop-up-message {
+    background-color: red;
+
+    p {
+      color: $white;
+    }
+  }
+
+}
+
+.base-layout.notice {
+  .pop-up-message {
+    background-color: orange;
+
+    p {
+      color: $white;
+    }
+  }
+}

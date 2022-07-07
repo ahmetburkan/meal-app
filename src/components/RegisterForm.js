@@ -1,22 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { ThemeContext } from "../context/ThemeContextProvider";
 
 const RegisterForm = () => {
-
-    const [message, setMessage] = useState(null);
+    const { setOverlay, setMessage, setLoading } = useContext(ThemeContext);
 
     const baseUrl = axios.create({
         baseURL: "https://frontend-educational-backend.herokuapp.com/api"
     });
 
-    const [loading, toggleLoading] = useState(false);
     const { handleSubmit, formState: { errors }, register } = useForm({
         mode: 'onChange'
     });
 
     async function onFormSubmit(data) {
-        toggleLoading(true);
+        setLoading(true);
 
         try {
             const result = await baseUrl.post('/auth/signup', {
@@ -25,24 +24,25 @@ const RegisterForm = () => {
                 password: data.password,
                 role: ["user"],
             });
-            console.log(result)
             setMessage(result.data.message);
+            setOverlay('success')
         } catch (e) {
             if (e.response) {
                 setMessage(e.response.data.message);
+                setOverlay('notice');
             } else if (e.request) {
                 setMessage('Bad request. Try again later.');
+                setOverlay('error');
             } else {
                 setMessage('Something went wrong. Try again later.');
+                setOverlay('error');
             }
         }
-        toggleLoading(false);
     }
 
     return (
 
         <form  className='form' onSubmit={handleSubmit(onFormSubmit)}>
-            <p className='message'>{ message }</p>
             <label htmlFor="email">
                 Email: {errors.email && <span>{errors.email.message}</span>}
             </label>
@@ -51,7 +51,6 @@ const RegisterForm = () => {
                 type="email"
                 name="email"
                 id="email"
-                disabled={loading}
                 {...register("email", {
                     required: "Required *",
                     maxLength: {
@@ -73,7 +72,6 @@ const RegisterForm = () => {
                 type="password"
                 name="password"
                 id="password"
-                disabled={loading}
                 {...register("password", {
                     required: "Required *",
                     minLength: {
@@ -90,7 +88,6 @@ const RegisterForm = () => {
             <button
                 className='submit'
                 type="submit"
-                disabled={loading}
             >
                 Register
             </button>

@@ -33,6 +33,7 @@
           border-bottom: 2px solid $white;
           @include text($green-light, $text-m);
           transition: opacity 0.3s ease;
+          text-align: center;
 
           &:hover {
             opacity: 0.8;
@@ -107,6 +108,7 @@
         width: 50%;
         &-inner {
           max-height: 350px;
+          width: 300px;
         }
       }
 
