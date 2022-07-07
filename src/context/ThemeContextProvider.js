@@ -23,7 +23,7 @@ function ThemeContextProvider({ children }) {
         if (message) {
             setTimeout(() => {
                 setOverlay(null);
-            }, 5000);
+            }, 2500);
         }
     },[loading, message])
 

@@ -1,0 +1,62 @@
+.welcome {
+
+  .main {
+    height: 100%;
+
+    &-inner {
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-flow: column nowrap;
+      align-items: center;
+
+      &-left {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-flow: column nowrap;
+
+        &-inner {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-flow: column nowrap;
+          margin: 20px;
+          justify-content: flex-start;
+
+          h1 {
+            text-align: initial;
+            @include title($green-light, $title-l);
+          }
+
+          p {
+            @include title($green-light, $title-s);
+
+          }
+        }
+      }
+    }
+
+    @media only screen and (min-width: $tablet) {
+      &-inner {
+        flex-flow: row nowrap;
+
+        &-left {
+          width: 50%;
+
+          &-inner {
+            max-height: initial;
+            width: initial;
+          }
+        }
+
+        &-right {
+          order: initial;
+          width: 50%;
+        }
+      }
+    }
+  }
+}
