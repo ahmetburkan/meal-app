@@ -4,7 +4,6 @@ import Register from './pages/Register';
 import Welcome from './pages/Welcome';
 import NotFound from './pages/NotFound';
 import Random from "./pages/Random";
-import Category from "./pages/Category";
 import Area from "./pages/Area";
 import AreaOverview from "./pages/AreaOverview";
 import Meal from "./pages/Meal";
@@ -42,13 +41,10 @@ function App() {
                     <Route exact path="/random" element={
                         <Random/>
                     }/>
-                    {/*<Route exact path="/category" element={*/}
-                    {/*    <Category/>*/}
-                    {/*}/>*/}
                     <Route exact path="/area" element={
                         <Area/>
                     }/>
-                    <Route exact path="/area/:id" element={
+                    <Route exact path="/area/:name" element={
                         <AreaOverview/>
                     }/>
                     <Route exact path="/meal/:id" element={

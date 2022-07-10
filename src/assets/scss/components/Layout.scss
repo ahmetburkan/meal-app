@@ -8,35 +8,39 @@ body,
   display: flex;
   flex-direction: column;
   height: 100%;
-  //max-width: $max-width;
-  //margin-left: auto;
-  //margin-right: auto;
   position: relative;
 
   &-header {
     flex-shrink: 0;
+    background-color: $green;
 
     header {
-      background-color: $green;
+      max-width: $desktop;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
   &-main {
     flex-grow: 1;
+    background-color: $white;
 
     main {
       max-width: $desktop;
       margin-left: auto;
       margin-right: auto;
-      background-color: $white;
     }
   }
 
   &-footer {
+
     flex-shrink: 0;
+    background-color: $green;
 
     footer {
-      background-color: $green;
+      max-width: $desktop;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }

@@ -1,17 +1,12 @@
-import React, { useState, useEffect, useContext} from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import SurpriseBox from "../assets/images/surprise-box.png";
 import Eye from "../assets/images/eye.png";
-import {ThemeContext} from "../context/ThemeContextProvider";
-
-
 
 const Area = () => {
-    const {setOverlay } = useContext(ThemeContext);
-
     let [ data, setData ] = useState([])
     useEffect(() => {
         async function getResults() {

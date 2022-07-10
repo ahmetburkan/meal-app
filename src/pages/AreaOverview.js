@@ -5,18 +5,16 @@ import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
 
 const AreaOverview = () => {
-    let { id } = useParams();
+    let { name } = useParams();
 
     let [ data, setData ] = useState([])
     useEffect(() => {
         async function getResults() {
-            const results = await axios.get('https://www.themealdb.com/api/json/v1/1/filter.php', {params: {a: id}});
+            const results = await axios.get('https://www.themealdb.com/api/json/v1/1/filter.php', {params: {a: name}});
             setData(results.data.meals)
-
-            console.log(results.data.meals)
         }
-        getResults()
-    },[])
+        getResults();
+    },[name])
     return (
         <>
             <div className='base-layout-header'>

@@ -13,19 +13,9 @@ function ThemeContextProvider({ children }) {
     // Set loading when something is happening in the app.
     const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        if (loading) {
-            setTimeout(() => {
-                setLoading(null);
-            }, 600);
-        }
-
-        if (message) {
-            setTimeout(() => {
-                setOverlay(null);
-            }, 2500);
-        }
-    },[loading, message])
+    // Supported types:
+    // 'register', 'login'.
+    const [formType, setFormType] = useState(null);
 
     return (
         <ThemeContext.Provider value={{
@@ -37,6 +27,9 @@ function ThemeContextProvider({ children }) {
 
             setLoading: setLoading,
             loading: loading,
+
+            setFormType: setFormType,
+            formType: formType,
         }}>
             { children }
         </ThemeContext.Provider>

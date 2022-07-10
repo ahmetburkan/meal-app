@@ -1,39 +1,85 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { AuthContext } from '../context/AuthContextProvider';
 import { ThemeContext } from "../context/ThemeContextProvider";
 
-const RegisterForm = () => {
-    const { setOverlay, setMessage, setLoading } = useContext(ThemeContext);
+const Form = () => {
+    const { setOverlay, setMessage, setLoading, formType, loading, message } = useContext(ThemeContext);
+    const { login } = useContext(AuthContext);
 
     const baseUrl = axios.create({
-        baseURL: "https://frontend-educational-backend.herokuapp.com/api"
+        baseURL: "https://frontend-educational-backend.herokuapp.com/api/auth/"
     });
 
     const { handleSubmit, formState: { errors }, register } = useForm({
         mode: 'onChange'
     });
 
+    useEffect(() => {
+        async function effect() {
+            if (loading) {
+                setTimeout(() => {
+                    setLoading(null);
+                }, 600);
+            }
+
+            if (message) {
+                setTimeout(() => {
+                    setOverlay(null);
+                }, 2500);
+            }
+        }
+        effect();
+    },[loading, message])
+
+
     async function onFormSubmit(data) {
         setLoading(true);
 
         try {
-            const result = await baseUrl.post('/auth/signup', {
-                username: data.email,
-                email: data.email,
-                password: data.password,
-                role: ["user"],
-            });
-            setMessage(result.data.message);
-            setOverlay('success')
+            // No form type has been set.
+            if (!formType) {
+                return;
+            }
+
+            if (formType === "login") {
+                const result = await baseUrl.post('signin', {
+                    username: data.email,
+                    email: data.email,
+                    password: data.password,
+                    role: ["user"],
+                });
+                login(result.data.accessToken);
+            }
+
+            if (formType === "register") {
+                const result = await baseUrl.post('signup', {
+                    username: data.email,
+                    email: data.email,
+                    password: data.password,
+                    role: ["user"],
+                });
+                setMessage(result.data.message);
+                setOverlay('success');
+            }
         } catch (e) {
             if (e.response) {
+                // Wrong credentials for login.
+                if (e.response.status === 401) {
+                    setMessage("Wrong credentials.");
+                    setOverlay('notice');
+                }
+
+                // Error registering.
                 setMessage(e.response.data.message);
                 setOverlay('notice');
             } else if (e.request) {
+                // Common error if request fails to connect to backend.
                 setMessage('Bad request. Try again later.');
                 setOverlay('error');
             } else {
+                // Common error if request.
                 setMessage('Something went wrong. Try again later.');
                 setOverlay('error');
             }
@@ -41,7 +87,6 @@ const RegisterForm = () => {
     }
 
     return (
-
         <form  className='form' onSubmit={handleSubmit(onFormSubmit)}>
             <label htmlFor="email">
                 Email: {errors.email && <span>{errors.email.message}</span>}
@@ -89,9 +134,9 @@ const RegisterForm = () => {
                 className='submit'
                 type="submit"
             >
-                Register
+                { formType }
             </button>
         </form>
     );
 };
-export default RegisterForm;
+export default Form;

@@ -1,21 +1,32 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import RegisterForm from "../components/RegisterForm";
+import Form from "../components/Form";
+import { ThemeContext } from "../context/ThemeContextProvider";
 
 const Register = () => {
+    const { setFormType, formType } = useContext(ThemeContext);
+
+    useEffect(() => {
+        async function effect() {
+            setFormType('register');
+        }
+        effect();
+    },[formType])
 
     return (
-        <div className='base-layout-main'>
+        <div className='base-layout-main register'>
             <main className='main'>
                 <div className="main-inner">
-                    <section className='main-inner-left'>
+
+                    <div className='main-inner-left'>
                         <div className="main-inner-left-inner">
-                            <h1>Register</h1>
-                            <RegisterForm/>
+                            <h1>{ formType }</h1>
+                            <Form/>
                             <Link className='link' to='/'>Do you already have an account? Go to login!</Link>
                         </div>
-                    </section>
-                    <section className='main-inner-right'></section>
+                    </div>
+                    <div className='main-inner-right'></div>
+
                 </div>
             </main>
         </div>
