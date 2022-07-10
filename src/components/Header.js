@@ -34,10 +34,11 @@ const Header = () => {
                 <div className="header-inner-menu">
                     <div className="header-inner-menu-wrapper">
                         <div className="header-inner-menu-wrapper-left">
-                            <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/area">Area list</NavLink>
-                            <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/category">Category list</NavLink>
-                            <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/random"><span className='logo-link'>Random <img src={SurpriseBox} alt='Suprise Box'/></span></NavLink>
-                            <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/my-account">My account</NavLink>
+                            <NavLink onClick={toggleOverlay} className={(navData) => navData.isActive ? "active" : "" } to="/area">Area list</NavLink>
+                            <NavLink onClick={toggleOverlay} className={(navData) => navData.isActive ? "active" : "" } to="/category">Category list</NavLink>
+                            <NavLink onClick={toggleOverlay} className={(navData) => navData.isActive ? "active" : "" } to="/ingredient">Ingredient list</NavLink>
+                            <NavLink onClick={toggleOverlay} className={(navData) => navData.isActive ? "active" : "" } to="/random"><span className='logo-link'>Random <img src={SurpriseBox} alt='Suprise Box'/></span></NavLink>
+                            <NavLink onClick={toggleOverlay} className={(navData) => navData.isActive ? "active" : "" } to="/my-account">My account</NavLink>
                         </div>
                         <div className="header-inner-menu-wrapper-right">
                             <button onClick={logout}>Logout</button>

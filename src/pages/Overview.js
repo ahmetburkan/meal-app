@@ -4,14 +4,29 @@ import Footer from "../components/Footer";
 import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
 
-const AreaOverview = () => {
+const Overview = () => {
     let { name } = useParams();
-
     let [ data, setData ] = useState([])
+
     useEffect(() => {
+        let path = window.location.pathname;
+
         async function getResults() {
-            const results = await axios.get('https://www.themealdb.com/api/json/v1/1/filter.php', {params: {a: name}});
-            setData(results.data.meals)
+
+            if (path.includes("area")) {
+                const results = await axios.get('https://www.themealdb.com/api/json/v1/1/filter.php', {params: {a: name}});
+                setData(results.data.meals)
+            }
+
+            if (path.includes("category")) {
+                const results = await axios.get('https://www.themealdb.com/api/json/v1/1/filter.php', {params: {c: name}});
+                setData(results.data.meals)
+            }
+
+            if (path.includes("ingredient")) {
+                const results = await axios.get('https://www.themealdb.com/api/json/v1/1/filter.php', {params: {i: name}});
+                setData(results.data.meals)
+            }
         }
         getResults();
     },[name])
@@ -36,7 +51,6 @@ const AreaOverview = () => {
                                 </Link>
                             );
                         })}
-
                     </div>
                 </main>
             </div>
@@ -48,4 +62,4 @@ const AreaOverview = () => {
     );
 };
 
-export default AreaOverview;
+export default Overview;

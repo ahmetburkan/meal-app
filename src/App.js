@@ -3,9 +3,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Welcome from './pages/Welcome';
 import NotFound from './pages/NotFound';
-import Random from "./pages/Random";
-import Area from "./pages/Area";
-import AreaOverview from "./pages/AreaOverview";
+import List from "./pages/List";
+import Overview from "./pages/Overview";
 import Meal from "./pages/Meal";
 
 import {
@@ -39,13 +38,29 @@ function App() {
                         isAuth ? <Welcome /> : <Navigate to="/" />
                     }/>
                     <Route exact path="/random" element={
-                        <Random/>
+                        <Meal/>
+                    }/>
+                    <Route exact path="/random/:list" element={
+                        <Meal/>
                     }/>
                     <Route exact path="/area" element={
-                        <Area/>
+                        <List/>
                     }/>
                     <Route exact path="/area/:name" element={
-                        <AreaOverview/>
+                        <Overview/>
+                    }/>
+                    <Route exact path="/category" element={
+                        <List/>
+                    }/>
+                    <Route exact path="/category/:name" element={
+                        <Overview/>
+                    }/>
+                    <Route exact path="/ingredient" element={
+                        <List/>
+                    }/>
+
+                    <Route exact path="/ingredient/:name" element={
+                        <Overview/>
                     }/>
                     <Route exact path="/meal/:id" element={
                         <Meal/>

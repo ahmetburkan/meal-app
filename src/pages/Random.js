@@ -11,7 +11,7 @@ const Random = () => {
                 <Header/>
             </div>
 
-            <div className='base-layout-main random'>
+            <div className='base-layout-main meal'>
                 <main className='main'>
                     <div className="main-inner">
                         <MealDetails/>

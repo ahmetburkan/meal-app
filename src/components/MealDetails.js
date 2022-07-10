@@ -7,7 +7,6 @@ const MealDetails = () => {
     let [ data, setData ] = useState([]);
 
     useEffect(() => {
-
         async function getResults() {
             let path = window.location.pathname;
 
