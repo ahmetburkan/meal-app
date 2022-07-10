@@ -6,7 +6,6 @@ import NotFound from './pages/NotFound';
 import List from "./pages/List";
 import Overview from "./pages/Overview";
 import Meal from "./pages/Meal";
-
 import {
     BrowserRouter as Router,
     Routes,
@@ -40,9 +39,15 @@ function App() {
                     <Route exact path="/random" element={
                         <Meal/>
                     }/>
-                    {/*<Route exact path="/random/:list" element={*/}
-                    {/*    <Meal/>*/}
-                    {/*}/>*/}
+                    <Route exact path="/random/area/:id" element={
+                        <Meal/>
+                    }/>
+                    <Route exact path="/random/category/:id" element={
+                        <Meal/>
+                    }/>
+                    <Route exact path="/random/ingredient/:id" element={
+                        <Meal/>
+                    }/>
                     <Route exact path="/area" element={
                         <List/>
                     }/>

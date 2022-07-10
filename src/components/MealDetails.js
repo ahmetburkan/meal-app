@@ -19,6 +19,30 @@ const MealDetails = () => {
                 setData(results.data.meals);
             }
 
+            if (path.includes("/area/")) {
+                const results = await axios.get('https://www.themealdb.com/api/json/v1/1/filter.php', {params: {a: id}});
+                let array = results.data.meals;
+                const mealId = array[Math.floor(Math.random() * array.length)].idMeal;
+                const resultsAfter = await axios.get('https://www.themealdb.com/api/json/v1/1/lookup.php', {params: {i: mealId}});
+                setData(resultsAfter.data.meals);
+            }
+
+            if (path.includes("/category/")) {
+                const results = await axios.get('https://www.themealdb.com/api/json/v1/1/filter.php', {params: {c: id}});
+                let array = results.data.meals;
+                const mealId = array[Math.floor(Math.random() * array.length)].idMeal;
+                const resultsAfter = await axios.get('https://www.themealdb.com/api/json/v1/1/lookup.php', {params: {i: mealId}});
+                setData(resultsAfter.data.meals);
+            }
+
+            if (path.includes("/ingredient/")) {
+                const results = await axios.get('https://www.themealdb.com/api/json/v1/1/filter.php', {params: {i: id}});
+                let array = results.data.meals;
+                const mealId = array[Math.floor(Math.random() * array.length)].idMeal;
+                const resultsAfter = await axios.get('https://www.themealdb.com/api/json/v1/1/lookup.php', {params: {i: mealId}});
+                setData(resultsAfter.data.meals);
+            }
+
             if (path.includes("meal")) {
                 const results = await axios.get('https://www.themealdb.com/api/json/v1/1/lookup.php', {params: {i: id}});
                 setData(results.data.meals);

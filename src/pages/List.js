@@ -64,9 +64,9 @@ const List = () => {
                                             {row.strCategory ? <Link to={'/category/' + row.strCategory}><img src={Eye} alt='Eye icon'/></Link> : ''}
                                             {row.strIngredient ? <Link to={'/ingredient/' + row.strIngredient}><img src={Eye} alt='Eye icon'/></Link> : ''}
 
-                                            {row.strArea ? <Link to={'/random/' + row.strArea}><img src={SurpriseBox} alt='Suprise Box'/></Link> : ''}
-                                            {row.strCategory ? <Link to={'/random/' + row.strCategory}><img src={SurpriseBox} alt='Suprise Box'/></Link> : ''}
-                                            {row.strIngredient ? <Link to={'/random/' + row.strIngredient}><img src={SurpriseBox} alt='Suprise Box'/></Link> : ''}
+                                            {row.strArea ? <Link to={'/random/area/' + row.strArea}><img src={SurpriseBox} alt='Suprise Box'/></Link> : ''}
+                                            {row.strCategory ? <Link to={'/random/category/' + row.strCategory}><img src={SurpriseBox} alt='Suprise Box'/></Link> : ''}
+                                            {row.strIngredient ? <Link to={'/random/ingredient/' + row.strIngredient}><img src={SurpriseBox} alt='Suprise Box'/></Link> : ''}
                                         </div>
                                     </div>
                                 );

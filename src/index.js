@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import ThemeContextProvider from './context/ThemeContextProvider';
 import AuthContextProvider from "./context/AuthContextProvider";
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

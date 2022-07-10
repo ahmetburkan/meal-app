@@ -17,6 +17,20 @@ function ThemeContextProvider({ children }) {
     // 'register', 'login'.
     const [formType, setFormType] = useState(null);
 
+    useEffect(() => {
+        if (loading) {
+            setTimeout(() => {
+                setLoading(null);
+            }, 600);
+        }
+
+        if (message) {
+            setTimeout(() => {
+                setOverlay(null);
+            }, 2500);
+        }
+    },[loading, message])
+
     return (
         <ThemeContext.Provider value={{
             setOverlay: setOverlay,

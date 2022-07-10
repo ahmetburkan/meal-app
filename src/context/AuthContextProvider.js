@@ -47,8 +47,7 @@ function AuthContextProvider({ children }) {
             user: null,
             status: 'done',
         });
-        setOverlay('notice');
-        setMessage("Logged out successful.");
+        window.location.replace('/');
     }
 
     async function fetchUserData(email, token) {

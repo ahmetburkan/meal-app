@@ -16,24 +16,6 @@ const Form = () => {
         mode: 'onChange'
     });
 
-    useEffect(() => {
-        async function effect() {
-            if (loading) {
-                setTimeout(() => {
-                    setLoading(null);
-                }, 600);
-            }
-
-            if (message) {
-                setTimeout(() => {
-                    setOverlay(null);
-                }, 2500);
-            }
-        }
-        effect();
-    },[loading, message])
-
-
     async function onFormSubmit(data) {
         setLoading(true);
 
