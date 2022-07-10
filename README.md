@@ -5,6 +5,7 @@ After a long day of work you don't want to choose what you want to eat. So i bui
 
 ![image](https://github.com/ahmetburkan/meal-app/blob/master/image.png?raw=true)
 
+The repo: https://github.com/ahmetburkan/meal-app
 
 This project was created  with [Lando](https://docs.lando.dev/) and [Create React App](https://github.com/facebook/create-react-app).
 ## How to start with Lando
