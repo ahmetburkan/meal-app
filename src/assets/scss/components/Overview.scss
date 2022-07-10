@@ -1,0 +1,74 @@
+.overview {
+  .main {
+    height: initial;
+
+    .main-inner {
+      margin: 20px;
+
+      .meal-wrapper {
+        margin-bottom: 40px;
+        flex: 1 1 100%;
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: column nowrap;
+
+        img {
+          width: 100%;
+          max-height: 400px;
+          object-fit: cover;
+        }
+
+        .wrapper {
+          display: flex;
+          justify-content: space-between;
+          flex-flow: row nowrap;
+          margin-top: 5px;
+
+          h3 {
+            @include text($green-light, $text-m);
+          }
+
+          button {
+            background-color: $green-light;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 10px;
+            cursor: pointer;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+    }
+
+    @media only screen and (min-width: $tablet) {
+      .main-inner {
+        flex-flow: row wrap;
+
+        .meal-wrapper {
+          flex: 0 1 45%;
+          display: flex;
+          justify-content: flex-start;
+          flex-flow: column nowrap;
+        }
+      }
+    }
+
+    @media only screen and (min-width: $desktop) {
+      .main-inner {
+        max-width: $desktop;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+

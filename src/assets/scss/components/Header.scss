@@ -98,16 +98,20 @@
           flex-flow: column nowrap;
           margin-top: 10px;
 
-          a {
-            border-bottom: 2px solid $white;
-            align-self: flex-start;
-            color: $white;
-            @include text($white, $title-m);
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+          button {
+            background-color: transparent;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 10px;
+            cursor: pointer;
+            opacity: 1;
+            transition: opacity 0.3s ease;
 
             &:hover {
-              color: $green-light;
-              border-bottom-color: $green-light;
+              opacity: 0.8;
             }
           }
         }
@@ -169,7 +173,7 @@
           &-right {
             margin-top: initial;
 
-            a {
+            button {
               border-bottom: initial;
               @include text($white, $text-m);
             }

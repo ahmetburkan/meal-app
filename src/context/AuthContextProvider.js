@@ -5,7 +5,7 @@ import { ThemeContext } from "./ThemeContextProvider";
 export const AuthContext = createContext({});
 
 function AuthContextProvider({ children }) {
-    const { setOverlay, setMessage, setLoading } = useContext(ThemeContext);
+    const { setOverlay, setMessage } = useContext(ThemeContext);
 
     const [isAuth, toggleIsAuth] = useState({
         isAuth: false,
@@ -28,6 +28,7 @@ function AuthContextProvider({ children }) {
                 status: 'done',
             });
         }
+        // eslint-disable-next-line
     }, []);
 
     function login(JWT) {

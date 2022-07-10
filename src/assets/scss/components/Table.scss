@@ -1,0 +1,50 @@
+.table {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: column nowrap;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $green-light;
+    height: 30px;
+    padding: 0 10px;
+
+    &.head {
+      height: 40px;
+      background-color: $green;
+    }
+
+    .item {
+      @include text($white, $text-m, 700);
+
+      &.icons {
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: row nowrap;
+
+        a {
+          height: 21px;
+
+          &:last-of-type {
+            margin-left: 5px;
+          }
+
+          img {
+            height: 100%;
+          }
+        }
+
+      }
+    }
+
+    &:nth-of-type(2n) {
+      background-color: $white;
+
+      .item {
+        @include text($green-light, $text-m, 700);
+      }
+    }
+  }
+}

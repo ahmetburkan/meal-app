@@ -1,0 +1,24 @@
+.list {
+  .main-inner {
+    margin: 20px;
+
+    .table {
+      border: none !important;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-start;
+      flex-flow: column nowrap;
+    }
+
+    @media only screen and (min-width: $tablet) {
+      .table {
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+

@@ -3,6 +3,12 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Welcome from './pages/Welcome';
 import NotFound from './pages/NotFound';
+import Random from "./pages/Random";
+import Category from "./pages/Category";
+import Area from "./pages/Area";
+import AreaOverview from "./pages/AreaOverview";
+import Meal from "./pages/Meal";
+
 import {
     BrowserRouter as Router,
     Routes,
@@ -33,23 +39,20 @@ function App() {
                     <Route exact path="/welcome" element={
                         isAuth ? <Welcome /> : <Navigate to="/" />
                     }/>
-                    <Route exact path="/my-account" element={
-                        <Welcome/>
+                    <Route exact path="/random" element={
+                        <Random/>
                     }/>
-                    <Route exact path="/category" element={
-                        <Welcome/>
+                    {/*<Route exact path="/category" element={*/}
+                    {/*    <Category/>*/}
+                    {/*}/>*/}
+                    <Route exact path="/area" element={
+                        <Area/>
                     }/>
-                    <Route exact path="/country" element={
-                        <Welcome/>
+                    <Route exact path="/area/:id" element={
+                        <AreaOverview/>
                     }/>
-                    <Route exact path="/category/asian" element={
-                        <Welcome/>
-                    }/>
-                    <Route exact path="/country/netherland" element={
-                        <Welcome/>
-                    }/>
-                    <Route exact path="/meal" element={
-                        <Welcome/>
+                    <Route exact path="/meal/:id" element={
+                        <Meal/>
                     }/>
                     <Route path="*" element={
                         <NotFound/>

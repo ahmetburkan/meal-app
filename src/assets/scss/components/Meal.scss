@@ -1,0 +1,56 @@
+.meal {
+  .main {
+    .main-inner {
+      margin: 20px;
+
+      .wrapper {
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: column nowrap;
+
+        .left {
+          h1 {
+            @include title($green-light, $title-l);
+            margin-bottom: 20px;
+          }
+
+          p {
+            @include text($green-light, $text-m);
+            margin-bottom: 20px;
+          }
+
+          .table {
+            margin-bottom: 20px;
+          }
+        }
+
+        .right {
+          img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+
+          }
+        }
+      }
+
+      @media only screen and (min-width: $desktop) {
+        .wrapper {
+          justify-content: space-between;
+          flex-flow: row nowrap;
+
+          .left {
+            flex: 0 1 45%;
+          }
+
+          .right {
+            flex: 0 1 45%;
+            margin-top: 70px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
