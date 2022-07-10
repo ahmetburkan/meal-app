@@ -11,7 +11,7 @@ const Login = () => {
             setFormType('login');
         }
         effect();
-    },[formType])
+    },[formType, setFormType])
 
     return (
         <div className='base-layout-main login'>

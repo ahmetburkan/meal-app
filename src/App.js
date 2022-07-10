@@ -33,6 +33,9 @@ function App() {
                     <Route exact path="/register" element={
                         !isAuth ? <Register /> : <Navigate to="/welcome" />
                     }/>
+                    <Route exact path="/my-account" element={
+                        isAuth ? <Welcome /> : <Navigate to="/" />
+                    }/>
                     <Route exact path="/welcome" element={
                         isAuth ? <Welcome /> : <Navigate to="/" />
                     }/>

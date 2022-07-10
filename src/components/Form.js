@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContextProvider';
 import { ThemeContext } from "../context/ThemeContextProvider";
 
 const Form = () => {
-    const { setOverlay, setMessage, setLoading, formType, loading, message } = useContext(ThemeContext);
+    const { setOverlay, setMessage, setLoading, formType } = useContext(ThemeContext);
     const { login } = useContext(AuthContext);
 
     const baseUrl = axios.create({

@@ -15,6 +15,7 @@ const Footer = () => {
                             <li className="footer-inner-block-list-item"><NavLink to="/random"><span className='logo-link'>Random <img src={SurpriseBox} alt='Suprise Box'/></span></NavLink></li>
                             <li className="footer-inner-block-list-item"><NavLink to="/Area">Area list</NavLink></li>
                             <li className="footer-inner-block-list-item"><NavLink to="/category">Category list</NavLink></li>
+                            <li className="footer-inner-block-list-item"><NavLink to="/ingredient">Ingredient list</NavLink></li>
                             <li className="footer-inner-block-list-item"><NavLink to="/my-account">My account</NavLink></li>
                         </ul>
                     </div>

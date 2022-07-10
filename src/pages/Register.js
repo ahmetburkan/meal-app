@@ -11,7 +11,7 @@ const Register = () => {
             setFormType('register');
         }
         effect();
-    },[formType])
+    },[formType, setFormType])
 
     return (
         <div className='base-layout-main register'>
