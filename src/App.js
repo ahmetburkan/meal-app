@@ -40,9 +40,9 @@ function App() {
                     <Route exact path="/random" element={
                         <Meal/>
                     }/>
-                    <Route exact path="/random/:list" element={
-                        <Meal/>
-                    }/>
+                    {/*<Route exact path="/random/:list" element={*/}
+                    {/*    <Meal/>*/}
+                    {/*}/>*/}
                     <Route exact path="/area" element={
                         <List/>
                     }/>
@@ -58,7 +58,6 @@ function App() {
                     <Route exact path="/ingredient" element={
                         <List/>
                     }/>
-
                     <Route exact path="/ingredient/:name" element={
                         <Overview/>
                     }/>

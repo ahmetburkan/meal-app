@@ -25,11 +25,28 @@
         }
 
         .right {
+          button {
+            float: right;
+            margin-bottom: 10px;
+            background-color: $green-light;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 10px;
+            cursor: pointer;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+
+            &:hover {
+              opacity: 0.8;
+            }
+          }
           img {
             width: 100%;
             max-height: 400px;
             object-fit: cover;
-
           }
         }
       }

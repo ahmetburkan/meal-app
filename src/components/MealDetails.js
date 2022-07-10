@@ -6,6 +6,10 @@ const MealDetails = () => {
     let { id } = useParams();
     let [ data, setData ] = useState([]);
 
+    function print() {
+        window.print();
+    }
+
     useEffect(() => {
         async function getResults() {
             let path = window.location.pathname;
@@ -60,6 +64,7 @@ const MealDetails = () => {
                             </div>
                         </div>
                         <div className={"right"}>
+                            <button onClick={print}>Print</button>
                             <img src={row.strMealThumb} alt={row.strMeal}/>
                         </div>
                     </div>

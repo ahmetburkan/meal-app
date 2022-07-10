@@ -1,7 +1,12 @@
 # Getting Started with the Meal App
+## The Meal App
+
+After a long day of work you don't want to choose what you want to eat. So i build this app to do it for you. you can choose between country, area, ingredient and even a random meal.
+
+![image](https://github.com/ahmetburkan/meal-app/blob/master/image.png?raw=true)
+
 
 This project was created  with [Lando](https://docs.lando.dev/) and [Create React App](https://github.com/facebook/create-react-app).
-
 ## How to start with Lando
 We use [Lando](https://docs.lando.dev/) for local development. To start developing use the following commands
 

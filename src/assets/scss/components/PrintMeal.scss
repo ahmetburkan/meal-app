@@ -1,0 +1,21 @@
+@media print {
+  .base-layout {
+
+    &-header {
+      display: none;
+    }
+
+    &-main {
+
+      main {
+        button {
+          display: none;
+        }
+      }
+    }
+
+    &-footer {
+      display: none !important;
+    }
+  }
+}
