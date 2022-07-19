@@ -44,6 +44,7 @@ const Overview = () => {
                             return (
                                 <OverviewItem
                                     key={index}
+                                    data={row}
                                 />
                             );
                         })}
