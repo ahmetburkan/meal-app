@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
 import axios from "axios";
-import SurpriseBox from "../assets/images/surprise-box.png";
-import Eye from "../assets/images/eye.png";
+import ListItem from "../components/ListItem";
 
 const List = () => {
     let [ data, setData ] = useState([]);
@@ -52,23 +50,10 @@ const List = () => {
                             </div>
                             {data.map((row, index) => {
                                 return (
-                                    <div key={index} className='row'>
-                                        <div className='item'>
-                                            {row.strArea ? row.strArea : ""}
-                                            {row.strCategory ? row.strCategory : ""}
-                                            {row.strIngredient ? row.strIngredient : ""}
-                                        </div>
-
-                                        <div className='item icons'>
-                                            {row.strArea ? <Link to={'/area/' + row.strArea}><img src={Eye} alt='Eye icon'/></Link> : ''}
-                                            {row.strCategory ? <Link to={'/category/' + row.strCategory}><img src={Eye} alt='Eye icon'/></Link> : ''}
-                                            {row.strIngredient ? <Link to={'/ingredient/' + row.strIngredient}><img src={Eye} alt='Eye icon'/></Link> : ''}
-
-                                            {row.strArea ? <Link to={'/random/area/' + row.strArea}><img src={SurpriseBox} alt='Suprise Box'/></Link> : ''}
-                                            {row.strCategory ? <Link to={'/random/category/' + row.strCategory}><img src={SurpriseBox} alt='Suprise Box'/></Link> : ''}
-                                            {row.strIngredient ? <Link to={'/random/ingredient/' + row.strIngredient}><img src={SurpriseBox} alt='Suprise Box'/></Link> : ''}
-                                        </div>
-                                    </div>
+                                    <ListItem
+                                        key={index}
+                                        data={row}
+                                    />
                                 );
                             })}
                         </div>

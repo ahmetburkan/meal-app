@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
+import OverviewItem from "../components/OverviewItem";
 
 const Overview = () => {
     let { name } = useParams();
@@ -41,14 +42,9 @@ const Overview = () => {
                     <div className="main-inner">
                         {data.map((row, index) => {
                             return (
-                                <Link className='meal-wrapper' key={index} to={'/meal/' + row.idMeal}>
-                                    <img src={row.strMealThumb} alt='Meal'/>
-                                    <div className="wrapper">
-                                        <h3>{row.strMeal}</h3>
-                                        <button>Try it!</button>
-                                    </div>
-
-                                </Link>
+                                <OverviewItem
+                                    key={index}
+                                />
                             );
                         })}
                     </div>
