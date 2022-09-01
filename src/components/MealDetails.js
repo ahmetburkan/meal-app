@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import Image from './Image';
 
 const MealDetails = () => {
     let { id } = useParams();
@@ -89,7 +90,7 @@ const MealDetails = () => {
                         </div>
                         <div className={"right"}>
                             <button onClick={print}>Print</button>
-                            <img src={row.strMealThumb} alt={row.strMeal}/>
+                            <Image src={data.strMealThumb} alt={data.strMeal}/>
                         </div>
                     </div>
                 );

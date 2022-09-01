@@ -4,6 +4,7 @@ import SurpriseBox from "../assets/images/surprise-box.png";
 import Logo from "../assets/images/logo.png";
 import { ThemeContext } from '../context/ThemeContextProvider';
 import { AuthContext } from "../context/AuthContextProvider";
+import Image from './Image';
 
 const Header = () => {
     const {setOverlay, overlay } = useContext(ThemeContext);
@@ -21,9 +22,7 @@ const Header = () => {
         <header className='header'>
             <div className="header-inner">
 
-                <div className="header-inner-logo">
-                    <a href="/"><img src={Logo} alt='Suprise Box'/></a>
-                </div>
+                <div className="header-inner-logo"><a href="/"><Image src={Logo} alt='Logo'/></a></div>
 
                 <div className='header-inner-hamburger' onClick={toggleOverlay}>
                     <div className="header-inner-hamburger-bar"></div>
@@ -37,7 +36,7 @@ const Header = () => {
                             <NavLink onClick={toggleOverlay} className={(navData) => navData.isActive ? "active" : "" } to="/area">Area list</NavLink>
                             <NavLink onClick={toggleOverlay} className={(navData) => navData.isActive ? "active" : "" } to="/category">Category list</NavLink>
                             <NavLink onClick={toggleOverlay} className={(navData) => navData.isActive ? "active" : "" } to="/ingredient">Ingredient list</NavLink>
-                            <NavLink onClick={toggleOverlay} className={(navData) => navData.isActive ? "active" : "" } to="/random"><span className='logo-link'>Random <img src={SurpriseBox} alt='Suprise Box'/></span></NavLink>
+                            <NavLink onClick={toggleOverlay} className={(navData) => navData.isActive ? "active" : "" } to="/random"><span className='logo-link'>Random <Image src={SurpriseBox} alt='Suprise Box'/></span></NavLink>
                             <NavLink onClick={toggleOverlay} className={(navData) => navData.isActive ? "active" : "" } to="/my-account">My account</NavLink>
                         </div>
                         <div className="header-inner-menu-wrapper-right">
